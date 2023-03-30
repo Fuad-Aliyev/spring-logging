@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN"
+               xmlns="http://logging.apache.org/log4j/2.0/config">
+    <Properties>
+        <Property name="LOG_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex
+        </Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"></PatternLayout>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.tutorial.log" level="debug" additivity="false">
+            <AppenderRef ref="ConsoleAppender"></AppenderRef>
+        </Logger>
+
+        <Root>
+            <AppenderRef ref="ConsoleAppender"></AppenderRef>
+        </Root>
+    </Loggers>
+</Configuration>
